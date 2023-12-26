@@ -1,11 +1,9 @@
 import random
 
-
 user_wins = 0
 computer_wins = 0
 
 options = ["rock", "paper", "scissors"]
-
 
 while True:
     user_input = input("Type Rock/Paper/Scissors or Q to quit: ").lower()
@@ -13,9 +11,11 @@ while True:
         break
 
     if user_input not in options:
+        print("Typing Error! Try Again.")
         continue
 
     random_number = random.randint(0, 2)
+
     computer_pick = options[random_number]
     print("Computer picked", computer_pick + ".")
 
@@ -30,6 +30,9 @@ while True:
     elif user_input == "scissors" and computer_pick == "paper":
         print("You won!")
         user_wins += 1
+    
+    elif user_input == computer_pick:
+        print("Tie...")
 
     else:
         print("You lost!")
